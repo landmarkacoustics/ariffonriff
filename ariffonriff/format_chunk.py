@@ -38,7 +38,7 @@ class FormatChunk(Chunk):
 
     @property
     def frame_size(self):
-        r"""The number of bytes in one instanc of samples from each channel"""
+        r"""The number of bytes in one instance of samples from each channel"""
         return self._frame_size
 
     @property
