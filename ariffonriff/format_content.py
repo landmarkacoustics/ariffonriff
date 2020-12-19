@@ -36,7 +36,7 @@ class FormatContent(RiffContent):
 
     """
 
-    chunk_id = 'fmt '
+    chunk_id = 'fmt ' # NOTE THE SPACE! IT IS ON PURPOSE. DON'T DELETE IT!
     pack_fmt = 'HHIIHH'
 
     def __init__(self, format_code, channel_count, sample_rate, bit_rate):
@@ -46,7 +46,7 @@ class FormatContent(RiffContent):
 
         self._code = format_code
         self._channels = channel_count
-        self._Hz = sample_rate
+        self._sample_rate = sample_rate
         self._bits = bit_rate
         self._byte_rate = bits_to_bytes(bit_rate)
 
@@ -65,8 +65,8 @@ class FormatContent(RiffContent):
         tpl = (
             self._code,
             self._channels,
-            self._Hz,
-            self._Hz * self._byte_rate * self._channels,
+            self._sample_rate,
+            self._sample_rate * self._byte_rate * self._channels,
             self._byte_rate * self._channels,
             self._bits
         )
